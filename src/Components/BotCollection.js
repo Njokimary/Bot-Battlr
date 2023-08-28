@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./BotCollection.css";
 
-function BotCollection({ enlistBot, enlistedBots }) {
+function BotCollection({ enlistBot,showBotSpecs, enlistedBots }) {
   const [bots, setBots] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,8 @@ function BotCollection({ enlistBot, enlistedBots }) {
       <h2>Bot <span>Collection</span></h2>
       <div className="bot-card-container">
         {bots.map(bot => (
-          <div className={`bot-card ${enlistedBots.some(b => b.id === bot.id) ? 'enlisted' : ''}`} key={bot.id}>
+          <div className={`bot-card ${enlistedBots.some(b => b.id === bot.id) ? 'enlisted' : ''}`} key={bot.id} 
+          onClick={() => showBotSpecs(bot)}>
             <img src={bot.avatar_url} alt={bot.name} />
             <h3>{bot.name}</h3>
             <p>Health: {bot.health}</p>
