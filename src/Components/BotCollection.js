@@ -5,7 +5,7 @@ function BotCollection({ enlistBot,showBotSpecs, enlistedBots }) {
   const [bots, setBots] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/bots")
+    fetch("https://dbserver-six.vercel.app/bots")
       .then(response => response.json())
       .then(data => setBots(data));
   }, []);
